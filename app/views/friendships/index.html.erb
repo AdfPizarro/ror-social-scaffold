@@ -13,3 +13,10 @@
         <li><%= link_to 'Accept', friendship_path(friend), method: :patch %></li>
  </ul>
 <% end %>
+
+<h2>Friend list</h2>
+<% @friends.each do |friend| %>
+ <ul class="friend_request">
+        <li><%= friend.name  %></%>
+ </ul>
+<% end %>

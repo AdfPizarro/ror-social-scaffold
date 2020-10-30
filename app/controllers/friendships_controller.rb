@@ -2,10 +2,9 @@ class FriendshipsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @friends = User.all
+    @friends = current_user.friends
     @pending_friends = current_user.pending_friends
     @friend_requests =  current_user.friend_requests
-    p @friend_requests
   end
    
   def create
