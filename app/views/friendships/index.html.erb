@@ -2,15 +2,14 @@
 <p>Waiting to be accepted</p>
 <% @pending_friends.each do |friend| %>
  <ul class="friend_request">
-	<li><%= friend.name  %></li>
- 	<li><%= link_to 'Cancel', friendship_path(friend), method: :delete %></li>
+	<li><%= friend.name  %></%>
  </ul>
 <% end %>
 <h2>Your requests</h2>
 <% @friend_requests.each do |friend| %>
- <ul class="friend_request> 
-	<li><%= friend.name  %></li>
- 	<li><%= link_to 'Cancel', friendships_path %></li>
-        <li><%= link_to 'Accept', new_friendship_path, method: :patch %></li>
+ <ul class="friend_request"> 
+	<li><%= friend.user.name %></li>
+ 	<li><%= link_to 'Reject', friendship_path(friend.id), method: :delete %></li>
+        <li><%= link_to 'Accept', friendship_path(friend), method: :patch %></li>
  </ul>
 <% end %>
