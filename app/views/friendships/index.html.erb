@@ -2,13 +2,14 @@
 <% @pending_friends.each do |friend| %>
  <ul>
 	<li><%= friend.name  %></li>
- 	<li><%= link_to 'Accept', friendships_path %></li>
+ 	<li><%= link_to 'Accept', new_friendship_path, method: :patch %></li>
  	<li><%= link_to 'Decline', friendships_path %></li>
  </ul>
 <% end %>
 <h2>Your requests</h2>
 <% @friend_requests.each do |friend| %>
- <%= friend.name  %>
- <%= link_to 'Accept', friendships_path %>
- <%= link_to 'Decline', friendships_path %>
+ <ul> 
+	<li><%= friend.name  %></li>
+ 	<li><%= link_to 'Cancel', friendships_path %></li>
+ </ul>
 <% end %>
