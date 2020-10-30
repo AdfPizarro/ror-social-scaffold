@@ -7,22 +7,21 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @request=request_available(params[:id].to_i)
+    @request = request_available(params[:id].to_i)
     @posts = @user.posts.ordered_by_most_recent
   end
 
   def request_available(user)
-   uid=current_user.id.to_i  
-   url=user
-   sent_request=Friendship.exists?(:user_id => uid,:friend_id =>url)
-   receive_request=Friendship.exists?(:friend_id =>uid,:user_id => url)
-   p '-------------------------adfasdf'
-   puts sent_request
-   if (uid==url)||sent_request||receive_request
-     false
+    uid = current_user.id.to_i
+    url = user
+    sent_request = Friendship.exists?(user_id: uid, friend_id: url)
+    receive_request = Friendship.exists?(friend_id: uid, user_id: url)
+    p '-------------------------adfasdf'
+    puts sent_request
+    if (uid == url) || sent_request || receive_request
+      false
     else
-     true
+      true
     end
-
-  end 
+  end
 end
