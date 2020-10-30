@@ -36,5 +36,6 @@ class User < ApplicationRecord
 
   def friend?(user)
     friends.include?(user)
-  end
+  end  
+
 end
