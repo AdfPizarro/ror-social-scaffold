@@ -1,15 +1,16 @@
-<h2>Pending requests</h2>
+<h2>Requests sent</h2>
+<p>Waiting to be accepted</p>
 <% @pending_friends.each do |friend| %>
- <ul>
+ <ul class="friend_request">
 	<li><%= friend.name  %></li>
- 	<li><%= link_to 'Accept', new_friendship_path, method: :patch %></li>
- 	<li><%= link_to 'Decline', friendships_path %></li>
+ 	<li><%= link_to 'Cancel', friendship_path(friend), method: :delete %></li>
  </ul>
 <% end %>
 <h2>Your requests</h2>
 <% @friend_requests.each do |friend| %>
- <ul> 
+ <ul class="friend_request> 
 	<li><%= friend.name  %></li>
  	<li><%= link_to 'Cancel', friendships_path %></li>
+        <li><%= link_to 'Accept', new_friendship_path, method: :patch %></li>
  </ul>
 <% end %>
