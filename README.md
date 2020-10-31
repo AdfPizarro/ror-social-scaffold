@@ -15,7 +15,7 @@
 
 To get a local copy up and running follow these simple example steps.
 
-Clone the repository to yout local machine 
+Clone the repository to yout local machine
 
 ```
 git@github.com:AdfPizarro/ror-social-scaffold.git
@@ -69,7 +69,7 @@ Open `http://localhost:3000/` in your browser.
 The tests checks the functionalities of creating and accepting friend requests
 by using capybara you can run it by the followng command
 
-![screenshot](./img/img_02.png)
+![screenshot](./img/img_02.PNG)
 
 ```
     rpsec --format documentation
@@ -104,4 +104,3 @@ TBA
 ## 📝 License
 
 TBA
-
