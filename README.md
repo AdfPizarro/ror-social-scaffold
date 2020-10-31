@@ -1,20 +1,37 @@
 # Scaffold for social media app with Ruby on Rails
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+![screenshot](./img/img_01.png)
+
+> Simple social network with the basic functionalities
+ -User managment
+ -Create, view, comment and like posts
+ -Add friends and see your friends posts in the timeline
 
 ## Built With
 
 - Ruby v2.7.0
 - Ruby on Rails v5.2.4
-
-## Live Demo
-
-TBA
-
-
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
+
+Clone the repository to yout local machine 
+
+```
+git@github.com:AdfPizarro/ror-social-scaffold.git
+```
+By default is configured to run with sqlite to make easy to test, however
+is ready to deploy just by changing the adapter configuration to posrgress
+by editing the gile confing/databse.yml
+
+```
+adapter: sqlite3
+```
+ to
+
+```
+adapter: postgresql
+```
 
 ### Prerequisites
 
@@ -37,16 +54,6 @@ Setup database with:
    rails db:migrate
 ```
 
-### Github Actions
-
-To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
-
-1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
-2. Create the `feature/branch` and push.
-3. Start working on your milestone as usual.
-4. Open a PR from the `feature/branch` when your work is done.
-
-
 ### Usage
 
 Start server with:
@@ -59,11 +66,14 @@ Open `http://localhost:3000/` in your browser.
 
 ### Run tests
 
+The tests checks the functionalities of creating and accepting friend requests
+by using capybara you can run it by the followng command
+
+![screenshot](./img/img_02.png)
+
 ```
     rpsec --format documentation
 ```
-
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
 
 ### Deployment
 
@@ -71,7 +81,11 @@ TBA
 
 ## Authors
 
-TBA
+ **Adrian Flores Pizarro**
+
+- Github: [@AdfPizarro](https://github.com/AdfPizarro)
+- Twitter: [@AdfPizarro](https://twitter.com/adfpizarro)
+- Linkedin: [adrian-flores-pizarro-73b62316a](https://www.linkedin.com/in/adrian-flores-pizarro-73b62316a/)
 
 ## 🤝 Contributing
 
