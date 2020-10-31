@@ -38,9 +38,9 @@ class User < ApplicationRecord
     friends.include?(user)
   end
 
-  def has_a_request(user)
-   friendship = inverse_friendships.find { |friend| friend.user_id == user }
-   !friendship.nil?
+  def a_request(user)
+    friendship = inverse_friendships.find { |friend| friend.user_id == user }
+    !friendship.nil?
   end
 
   def available_request?(usr)

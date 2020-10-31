@@ -20,7 +20,7 @@ describe 'Testing friendship funcctionalities', type: :feature do
                               password_confirmation: '123456' })
     @friendship = Friendship.create({ user_id: @fry.id,
                                       friend_id: @bender.id,
-                                      confirmed: false })
+                                      confirmed: true })
     @post = Post.create!({ user_id: @bender.id,
                            content: 'Bender post' })
   end
@@ -56,7 +56,7 @@ describe 'Testing friendship funcctionalities', type: :feature do
     end
 
     it 'reject friend request' do
-      visit 'friendships'
+      visit '/users'
       click_link 'Reject'
       expect(page).to have_content 'Frienship request deleted'
     end
@@ -70,7 +70,7 @@ describe 'Testing friendship funcctionalities', type: :feature do
       fill_in 'Email', with: 'zoid@gmail.com'
       fill_in 'Password', with: '123456'
       click_button 'commit'
-      visit 'friendships'
+      visit '/users'
       click_link 'Accept'
       expect(page).to have_content 'Friendship confirmed'
     end

@@ -6,7 +6,7 @@
           
      <%= link_to 'Send friend request',  user_friendships_path(user), method: :post %>
     <% end %>
-    <% if current_user.has_a_request(user.id) %>
+    <% if current_user.a_request(user.id) %>
         <%= link_to 'Accept', friendship_path(user), method: :patch %>
         <%= link_to 'Reject', friendship_path(user.id), method: :delete %>
     <% end %>
