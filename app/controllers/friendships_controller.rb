@@ -17,13 +17,13 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    request = Friendship.find(params[:id])
+    request = Friendship.find_by(friend_id: current_user.id, user_id: params[:id])
     request.destroy
     redirect_to(friendships_path, alert: 'Frienship request deleted')
   end
 
   def update
-    request = Friendship.find(params[:id])
+    request = Friendship.find_by(friend_id: current_user.id, user_id: params[:id])
     request.confirmed = true
     request.save
     redirect_to(friendships_path, alert: 'Friendship confirmed')

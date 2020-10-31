@@ -38,6 +38,11 @@ class User < ApplicationRecord
     friends.include?(user)
   end
 
+  def has_a_request(user)
+   friendship = inverse_friendships.find { |friend| friend.user_id == user }
+   !friendship.nil?
+  end
+
   def available_request?(usr)
     friends_array = friendships.map { |friendship| friendship.friend if friendship.friend_id == usr }
     friends_array += inverse_friendships.map { |friendship| friendship.user if friendship.user_id == usr }

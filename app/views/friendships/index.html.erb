@@ -5,14 +5,6 @@
 	<li><%= friend.name  %></%>
  </ul>
 <% end %>
-<h2>Your requests</h2>
-<% @friend_requests.each do |friend| %>
- <ul class="friend_request"> 
-	<li><%= friend.user.name %></li>
- 	<li><%= link_to 'Reject', friendship_path(friend.id), method: :delete %></li>
-        <li><%= link_to 'Accept', friendship_path(friend), method: :patch %></li>
- </ul>
-<% end %>
 
 <h2>Friend list</h2>
 <% @friends.each do |friend| %>
