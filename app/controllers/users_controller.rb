@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     url = user
     sent_request = Friendship.exists?(user_id: uid, friend_id: url)
     receive_request = Friendship.exists?(friend_id: uid, user_id: url)
-   
+
     if (uid == url) || sent_request || receive_request
       false
     else
