@@ -13,6 +13,7 @@ class FriendshipsController < ApplicationController
     request.friend_id = params[:user_id]
     request.confirmed = false
     request.save
+    redirect_to(friendships_path, alert: 'Frienship request sent')
   end
 
   def destroy
