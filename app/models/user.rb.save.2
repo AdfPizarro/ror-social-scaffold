@@ -29,7 +29,7 @@ class User < ApplicationRecord
   end
 
   def confirm_friend(user)
-    friendship = inverse_friendships.find { |friend| friend.user == user }
+    friendship = inverse_friendships.find { |friendship| friendship.user == user }
     friendship.confirmed = true
     friendship.save
   end
@@ -38,15 +38,12 @@ class User < ApplicationRecord
     friends.include?(user)
   end
 
-  def a_request(user)
-    friendship = inverse_friendships.find { |friend| friend.user_id == user }
-    !friendship.nil?
-  end
-
-  def available_request?(usr)
-    friends_array = friendships.map { |friendship| friendship.friend if friendship.friend_id == usr }
-    friends_array += inverse_friendships.map { |friendship| friendship.user if friendship.user_id == usr }
-    friends_array = friends_array.reject(&:blank?)
-    !friends_array.empty?
+  def request_available(usr)
+    friends_array = friendships.map {|friendship| friendship.friend_id == user.id friendship.user_id == usr.id}     
+    
+    friends_array.find{ |friendship| friendship.friend_id == user.id && friendship.user_id == id}
+    
+    return friends_array.include?(usr)
+    
   end
 end

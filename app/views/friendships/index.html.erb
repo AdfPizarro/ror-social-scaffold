@@ -1,0 +1,14 @@
+<h2>Requests sent</h2>
+<p>Waiting to be accepted</p>
+<% @pending_friends.each do |friend| %>
+ <ul class="friend_request">
+	<li><%= friend.name  %></%>
+ </ul>
+<% end %>
+
+<h2>Friend list</h2>
+<% @friends.each do |friend| %>
+ <ul class="friend_request">
+        <li><%= friend.name  %></%>
+ </ul>
+<% end %>

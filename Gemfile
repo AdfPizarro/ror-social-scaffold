@@ -7,6 +7,7 @@ ruby '2.7.0'
 gem 'rails', '~> 5.2.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
@@ -42,10 +43,15 @@ gem 'devise'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'shoulda', '~> 4.0'
 end
 
 group :test do
+  gem 'capybara', '~> 3.33'
   gem 'rspec'
+  gem 'selenium-webdriver'
 end
 
 group :development do

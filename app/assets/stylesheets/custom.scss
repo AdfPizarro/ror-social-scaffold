@@ -30,6 +30,10 @@ ul {
   list-style-type: none;
 }
 
+.friend_request li {
+  display: inline;
+}
+
 a {
   text-decoration: none;
   color: $primary-color-text;
@@ -157,7 +161,7 @@ form {
     }
 
     input[type="checkbox"] {
-      width: fit-content;
+      width: 100%;
     }
   }
 
