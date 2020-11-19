@@ -23,9 +23,10 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    request = Friendship.find_by(friend_id: current_user.id, user_id: params[:id])
-    request.confirmed = true
-    request.save
+    current_user.confirm_friend(params[:id].to_i)
+    #request = Friendship.find_by(friend_id: current_user.id, user_id: params[:id])
+    #request.confirmed = true
+    #request.save
     redirect_to(friendships_path, alert: 'Friendship confirmed')
   end
 

@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   def friends
     friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
-    friends_array += inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
+    friends_array + inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
     friends_array.compact
   end
 
@@ -27,9 +27,12 @@ class User < ApplicationRecord
   end
 
   def confirm_friend(user)
-    friendship = inverse_friendships.find { |friend| friend.user == user }
+    friendship = inverse_friendships.find { |friend| friend.user_id == user }
     friendship.confirmed = true
     friendship.save
+    Friendship.create!(friend_id: user,
+                  user_id: self.id,
+                  confirmed: true)
   end
 
   def friend?(user)
@@ -37,7 +40,7 @@ class User < ApplicationRecord
   end
 
   def a_request(user)
-    friendship = inverse_friendships.find { |friend| friend.user_id == user }
+    friendship = inverse_friendships.find_by(user_id: user, confirmed: false )
     !friendship.nil?
   end
 
