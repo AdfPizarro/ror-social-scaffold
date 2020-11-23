@@ -47,4 +47,8 @@ class User < ApplicationRecord
     friends_array = friends_array.reject(&:blank?)
     !friends_array.empty?
   end
+
+  def friends_and_own_posts
+    Post.where(user: (self.friends << self))
+  end
 end
