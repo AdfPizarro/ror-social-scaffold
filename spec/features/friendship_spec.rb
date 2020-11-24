@@ -7,9 +7,9 @@ describe 'Testing friendship funcctionalities', type: :feature do
                             password: '123456',
                             password_confirmation: '123456' })
     @fry = User.create({ name: 'Fry',
-                         email: 'fry@gmail.com',
-                         password: '123456',
-                         password_confirmation: '123456' })
+                        email: 'fry@gmail.com',
+                     password: '123456',
+        password_confirmation: '123456' })
     @leela = User.create({ name: 'Leela',
                            email: 'leela@gmail.com',
                            password: '123456',
