@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     timeline_posts
- end
+  end
 
   def create
     @post = current_user.posts.new(post_params)
@@ -20,11 +20,10 @@ class PostsController < ApplicationController
   private
 
   def timeline_posts
-    @timeline_posts=current_user.friends_and_own_posts
+    @timeline_posts = current_user.friends_and_own_posts
   end
 
   def post_params
     params.require(:post).permit(:content)
   end
 end
-

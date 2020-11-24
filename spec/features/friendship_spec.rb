@@ -31,8 +31,7 @@ describe 'Testing friendship funcctionalities', type: :feature do
     @friendship_second_row = Friendship.create({ user_id: @bender.id,
                                       friend_id: @fry.id,
                                       confirmed: true })
-    @post = Post.create!({ user_id: @bender.id,
-                           content: 'Bender post' })
+    @post = Post.create!({ user_id: @bender.id, content: 'Bender post' })
   end
 
   describe 'Create friend request' do
