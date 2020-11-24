@@ -1,4 +1,4 @@
-require 'rails_helper.rb'
+require_relative '../rails_helper.rb'
 
 RSpec.describe Friendship, type: :model do
   describe 'Associations' do

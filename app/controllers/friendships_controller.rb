@@ -4,7 +4,6 @@ class FriendshipsController < ApplicationController
   def index
     @friends = current_user.friends
     @pending_friends = current_user.pending_friends
-    @friend_requests = current_user.friend_requests
   end
 
   def create
@@ -23,9 +22,7 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    request = Friendship.find_by(friend_id: current_user.id, user_id: params[:id])
-    request.confirmed = true
-    request.save
+    current_user.confirm_friend(params[:id].to_i)
     redirect_to(friendships_path, alert: 'Friendship confirmed')
   end
 

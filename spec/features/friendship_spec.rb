@@ -1,4 +1,4 @@
-require 'rails_helper.rb'
+require_relative '../rails_helper.rb'
 
 describe 'Testing friendship funcctionalities', type: :feature do
   before :each do
@@ -18,11 +18,20 @@ describe 'Testing friendship funcctionalities', type: :feature do
                               email: 'zoid@gmail.com',
                               password: '123456',
                               password_confirmation: '123456' })
+    @dr = User.create({ name: 'Fransworth',
+                        email: 'dr@gmail.com',
+                        password: '123456',
+                        password_confirmation: '123456' })
+    @friendship_to_delete = Friendship.create({ user_id: @dr.id,
+                                                friend_id: @bender.id,
+                                                confirmed: false })
     @friendship = Friendship.create({ user_id: @fry.id,
                                       friend_id: @bender.id,
                                       confirmed: true })
-    @post = Post.create!({ user_id: @bender.id,
-                           content: 'Bender post' })
+    @friendship_second_row = Friendship.create({ user_id: @bender.id,
+                                                 friend_id: @fry.id,
+                                                 confirmed: true })
+    @post = Post.create!({ user_id: @bender.id, content: 'Bender post' })
   end
 
   describe 'Create friend request' do
@@ -58,7 +67,7 @@ describe 'Testing friendship funcctionalities', type: :feature do
     it 'reject friend request' do
       visit '/users'
       click_link 'Reject'
-      expect(page).to have_content 'Frienship request deleted'
+      expect(page).to have_content 'Friend list'
     end
 
     it 'create and accept friend request' do
