@@ -11,16 +11,13 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :friendships
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
-  has_many :confirmed_friendships, -> { where confirmed: true }, class_name: "Friendship"
+  
+  has_many :confirmed_friendships, -> { where confirmed: true }, class_name: 'Friendship'
   has_many :friends, through: :confirmed_friendships  
 
-  def pending_friends
-    friendships.map { |friendship| friendship.friend unless friendship.confirmed }.compact
-  end
 
-  def friend_requests
-    inverse_friendships.where(confirmed: false)
-  end
+  has_many :pending_friendships, -> { where confirmed: false }, class_name: 'Friendship', foreign_key: 'user_id'
+  has_many :pending_friends, through: :pending_friendships, source: :friend
 
   def confirm_friend(user)
     friendship = inverse_friendships.find { |friend| friend.user_id == user }
@@ -47,5 +44,6 @@ class User < ApplicationRecord
 
   def friends_and_own_posts
     Post.where(user: (self.friends << self))
+    return nil
   end
 end

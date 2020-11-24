@@ -1,4 +1,4 @@
-require 'rails_helper.rb'
+require_relative '../rails_helper.rb'
 
 describe 'Testing friendship funcctionalities', type: :feature do
   before :each do

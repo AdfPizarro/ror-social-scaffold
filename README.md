@@ -72,7 +72,7 @@ by using capybara you can run it by the followng command
 ![screenshot](./img/img_02.PNG)
 
 ```
-    rpsec --format documentation
+    rspec --format documentation
 ```
 
 ### Deployment
