@@ -7,9 +7,9 @@ describe 'Testing friendship funcctionalities', type: :feature do
                             password: '123456',
                             password_confirmation: '123456' })
     @fry = User.create({ name: 'Fry',
-                        email: 'fry@gmail.com',
-                     password: '123456',
-        password_confirmation: '123456' })
+                         email: 'fry@gmail.com',
+                         password: '123456',
+                         password_confirmation: '123456' })
     @leela = User.create({ name: 'Leela',
                            email: 'leela@gmail.com',
                            password: '123456',
@@ -23,14 +23,14 @@ describe 'Testing friendship funcctionalities', type: :feature do
                            password: '123456',
                            password_confirmation: '123456' })
     @friendship_to_delete = Friendship.create({ user_id: @dr.id,
-                                      friend_id: @bender.id,
-                                      confirmed: false })
+                                                friend_id: @bender.id,
+                                                confirmed: false })
     @friendship = Friendship.create({ user_id: @fry.id,
                                       friend_id: @bender.id,
                                       confirmed: true })
     @friendship_second_row = Friendship.create({ user_id: @bender.id,
-                                      friend_id: @fry.id,
-                                      confirmed: true })
+                                                 friend_id: @fry.id,
+                                                 confirmed: true })
     @post = Post.create!({ user_id: @bender.id, content: 'Bender post' })
   end
 
