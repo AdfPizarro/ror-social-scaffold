@@ -19,9 +19,9 @@ describe 'Testing friendship funcctionalities', type: :feature do
                               password: '123456',
                               password_confirmation: '123456' })
     @dr = User.create({ name: 'Fransworth',
-                           email: 'dr@gmail.com',
-                           password: '123456',
-                           password_confirmation: '123456' })
+                        email: 'dr@gmail.com',
+                        password: '123456',
+                        password_confirmation: '123456' })
     @friendship_to_delete = Friendship.create({ user_id: @dr.id,
                                                 friend_id: @bender.id,
                                                 confirmed: false })
