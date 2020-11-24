@@ -11,7 +11,14 @@
 
 - Ruby v2.7.0
 - Ruby on Rails v5.2.4
+
+## Live version
+
+You can view the live version here
+https://ror-soc.herokuapp.com/
+
 ## Getting Started
+
 
 To get a local copy up and running follow these simple example steps.
 
