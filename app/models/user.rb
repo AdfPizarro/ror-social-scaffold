@@ -42,8 +42,11 @@ class User < ApplicationRecord
     !friends_array.empty?
   end
 
+  def friends_ids
+    f_ids = friends.map(&:id)
+    f_ids << id
+  end
   def friends_and_own_posts
-    Post.where(user: (self.friends << self))
-    return nil
+    Post.where(user_id: friends_ids)
   end
 end
